@@ -1,0 +1,56 @@
+<table class="table text-center margin=0px">
+  <thead>
+    <tr>
+      <th scope="col">Imagen</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Cantidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (product of products; track product.name){
+      <tr [ngClass]="{'offer': product.offer}"> <!--Directiva de atributo que manipula las clases css de un elemento -->
+        <td><img [src]="product.image" [alt]="product.name"></td>
+        <td>{{product.name}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.price | currency}}</td>
+        @if (product.stock>0){
+          <td>{{product.stock}}</td>
+        } @else{
+          <td><span class="badge text-bg-danger">Sin stock</span></td> <!--Directiva estructural para mostrar o no un cartel -->
+        }
+         <td>
+           <div class="d-flex justify-content-center align-items-center gap-1">
+              <button type="button"  class="btn btn-success" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                (click)="downQuantity(product)">-</button> <!--Se agrega evento para aumentar la cant de elementos-->
+              <input type="number" class="form-control form-control-sm" style="width: 50px; text-align: center;" aria-label="Cantidad"
+                 [min]="0"
+                 [max]="product.stock"
+                 [disabled]="product.stock === 0"
+                 [(ngModel)]="product.quantity"
+                 (Keyup)="changeQuantity($event, product)"> <!--[(ngModel)]Two-way Data Binding, estamos conectados ida y vuelta con pruduct.quantity-->
+              <button type="button"  class="btn btn-success" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                (click)="upQuantity(product)">+</button> <!--Se agrega evento para disminuir la cant de elementos-->
+            </div>
+          </td>
+      </tr>
+    } @empty {
+      <tr>
+        <td colspan="4">No hay productos para mostrar</td>
+      </tr>
+    }
+    
+
+    <!-- Código con directivas estructucturales de Angular que ya no se usan
+    <tr *ngFor="let product of products" [ngClass]="{'offer': product.offer}"> <!--Directiva estructural para recorrer los productos / Directiva de atributo que manipula las clases css de un elemento -->
+      <!-- <td><img [src]="product.image" [alt]="product.name"></td>
+      <td>{{product.name}}</td>
+      <td>{{product.description}}</td>
+      <td>{{product.price | currency}}</td>
+      <td><span class="badge text-bg-danger" *ngIf="product.stock==0">Sin stock</span></td> <!--Directiva estructural para mostrar o no un cartel -->
+    <!--</tr> -->
+    
+  </tbody>
+</table>
