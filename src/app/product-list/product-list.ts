@@ -44,43 +44,12 @@ export class ProductList {
   
   constructor () {}
 
-  // ngOnInit(): void {
+  ngOnInit(): void {
 
-  // }
-
-  upQuantity(product: Product): void {
-    if(product.quantity < product.stock)
-     product.quantity++;
   }
 
-   downQuantity(product: Product): void {
-    if(product.quantity > 0)
-      product.quantity--;
-  }
-
-  
-  changeQuantity(event: Event, product: Product): void {
-  const input = event.target as HTMLInputElement;
-  const value = input.value.trim();
-
-  // Validar si es número
-  const quantity = Number(value);
-
-      if (isNaN(quantity)) {
-        product.quantity = 0;
-        input.value = '0';
-        return;
-      }
-
-      if (quantity < 0) {
-        product.quantity = 0;
-        input.value = '0';
-      } else if (quantity > product.stock) {
-        product.quantity = product.stock;
-        input.value = product.stock.toString();
-      } else {
-        product.quantity = quantity;
-      }
+  maxReached(m: String){
+    alert(m);
   }
 }
 

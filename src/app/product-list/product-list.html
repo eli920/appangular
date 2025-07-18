@@ -21,20 +21,10 @@
         } @else{
           <td><span class="badge text-bg-danger">Sin stock</span></td> <!--Directiva estructural para mostrar o no un cartel -->
         }
-         <td>
-           <div class="d-flex justify-content-center align-items-center gap-1">
-              <button type="button"  class="btn btn-success" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                (click)="downQuantity(product)">-</button> <!--Se agrega evento para aumentar la cant de elementos-->
-              <input type="number" class="form-control form-control-sm" style="width: 50px; text-align: center;" aria-label="Cantidad"
-                 [min]="0"
-                 [max]="product.stock"
-                 [disabled]="product.stock === 0"
-                 [(ngModel)]="product.quantity"
-                 (Keyup)="changeQuantity($event, product)"> <!--[(ngModel)]Two-way Data Binding, estamos conectados ida y vuelta con pruduct.quantity-->
-              <button type="button"  class="btn btn-success" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                (click)="upQuantity(product)">+</button> <!--Se agrega evento para disminuir la cant de elementos-->
-            </div>
-          </td>
+        <td>
+           <!-- <app-input-number [product]="product" *ngIf="product.stock"></app-input-number> -->
+            <app-input-number [(quantity)]="product.quantity" [max]="product.stock" *ngIf="product.stock" (maxReached)="maxReached($event)"></app-input-number>
+        </td>
       </tr>
     } @empty {
       <tr>
