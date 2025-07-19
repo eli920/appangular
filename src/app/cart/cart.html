@@ -1,1 +1,16 @@
-<p>Carrito de compras</p>
+<h3>Carrito de compras</h3>
+<ul>
+    @for (product of cartList$ | async; track product.name) {
+    <li>
+        {{product.name}}: {{product.quantity}}
+    </li>
+    } @empty {
+    <li>No hay productos en el carrito.</li>
+    }
+</ul>
+
+<!-- <ul>
+    <li *ngFor="let product of (cartList$ | async)">
+        {{product.name}}: {{product.quantity}}
+    </li>
+</ul> -->

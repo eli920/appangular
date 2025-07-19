@@ -7,6 +7,8 @@
       <th scope="col">Precio</th>
       <th scope="col">Stock</th>
       <th scope="col">Cantidad</th>
+       <th scope="col">Comprar</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -22,8 +24,10 @@
           <td><span class="badge text-bg-danger">Sin stock</span></td> <!--Directiva estructural para mostrar o no un cartel -->
         }
         <td>
-           <!-- <app-input-number [product]="product" *ngIf="product.stock"></app-input-number> -->
             <app-input-number [(quantity)]="product.quantity" [max]="product.stock" *ngIf="product.stock" (maxReached)="maxReached($event)"></app-input-number>
+        </td>
+        <td>
+            <button class="btn btn-primary" (click)="addToCart(product)">Comprar</button>
         </td>
       </tr>
     } @empty {
@@ -31,16 +35,6 @@
         <td colspan="4">No hay productos para mostrar</td>
       </tr>
     }
-    
-
-    <!-- Código con directivas estructucturales de Angular que ya no se usan
-    <tr *ngFor="let product of products" [ngClass]="{'offer': product.offer}"> <!--Directiva estructural para recorrer los productos / Directiva de atributo que manipula las clases css de un elemento -->
-      <!-- <td><img [src]="product.image" [alt]="product.name"></td>
-      <td>{{product.name}}</td>
-      <td>{{product.description}}</td>
-      <td>{{product.price | currency}}</td>
-      <td><span class="badge text-bg-danger" *ngIf="product.stock==0">Sin stock</span></td> <!--Directiva estructural para mostrar o no un cartel -->
-    <!--</tr> -->
     
   </tbody>
 </table>
