@@ -9,6 +9,7 @@ import { CarpentryAbout } from './carpentry-about/carpentry-about';
 import { CarpentryProducts } from './carpentry-products/carpentry-products';
 import { Cart } from './cart/cart';
 import { InputNumber } from './input-number/input-number';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { InputNumber } from './input-number/input-number';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners()

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from './Product'
 import { ProductCart } from '../product-cart';
+import { ProductData } from '../product-data';
 
 @Component({
   selector: 'app-product-list',
@@ -11,42 +12,48 @@ import { ProductCart } from '../product-cart';
 
 export class ProductList {
 
-   products: Product [] = [
-      {   
-      image: "assets/img/banco.jpeg",
-      name: "Banco de dos Cuerpos",
-      description: "Varillas recuperadas de Lapacho",
-      price: 170000,
-      stock: 0,
-      offer: false,
-      quantity: 0,
-      },
+   products: Product [] = [];
 
-    { 
-      image: "assets/img/mesa.jpg",
-      name: "Mesa Ratona",
-      description: "Lapacho recuperado- 90 x 45 x 45 cm",
-      price: 300000,
-      stock: 6,
-      offer: false,
-      quantity: 0,
-    },
+  //  products: Product [] = [
+  //     {   
+  //     image: "assets/img/banco.jpeg",
+  //     name: "Banco de dos Cuerpos",
+  //     description: "Varillas recuperadas de Lapacho",
+  //     price: 170000,
+  //     stock: 0,
+  //     offer: false,
+  //     quantity: 0,
+  //     },
 
-    { 
-      image: "assets/img/silla.jpg",
-      name: "Silla Jesuita",
-      description: "Varillas recuperadas de Lapacho/Quebracho",
-      price: 50000,
-      stock: 20,
-      offer: true,
-      quantity: 0,
-    }
-  ]
+  //   { 
+  //     image: "assets/img/mesa.jpg",
+  //     name: "Mesa Ratona",
+  //     description: "Lapacho recuperado- 90 x 45 x 45 cm",
+  //     price: 300000,
+  //     stock: 6,
+  //     offer: false,
+  //     quantity: 0,
+  //   },
+
+  //   { 
+  //     image: "assets/img/silla.jpg",
+  //     name: "Silla Jesuita",
+  //     description: "Varillas recuperadas de Lapacho/Quebracho",
+  //     price: 50000,
+  //     stock: 20,
+  //     offer: true,
+  //     quantity: 0,
+  //   }
+  // ]
   
-  constructor (private cart: ProductCart) {}
+  constructor (
+    private cart: ProductCart,
+    private productData: ProductData
+   ) {}
 
   ngOnInit(): void {
-
+    this.productData.getAll()
+    .subscribe(products => this.products = products);
   }
 
   addToCart(product: Product): void{
