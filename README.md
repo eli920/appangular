@@ -1,59 +1,32 @@
-# Appangular
+## Temática del proyecto
+Viejo Tablón App (appangular)
+Aplicación web desarrollada con Angular para la venta de muebles rústicos. El sistema permite gestionar un catálogo de productos y realizar compras mediante un carrito de compras interactivo.
+Esta app interactúa con una API externa simulada (MockAPI) para almacenar y actualizar datos en tiempo real, como productos, stock y nuevas incorporaciones al catálogo. 
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.4.
+La app permite a los usuarios:
 
-## Development server
+-Visualizar una lista de productos disponibles (con imagen, descripción, precio y stock).
 
-To start a local development server, run:
+-Seleccionar la cantidad deseada mediante un componente reutilizable con botones + / -.
 
-```bash
-ng serve
-```
+-Agregar productos al carrito de compras, disminuyendo automáticamente el stock disponible.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+-Consultar el contenido del carrito con imágenes, nombres y cantidades.
 
-## Code scaffolding
+-Agregar nuevos productos al catálogo desde un formulario reactivo de administración.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+-Persistir los datos usando HTTPClient mediante un servicio Angular que consume MockAApi.
 
-```bash
-ng generate component component-name
-```
+-Actualizar el stock en tiempo real tanto en la vista como en MockApi.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
 
-## Building
+## Datos del estudiante
+Nombre y Apellido: Elisa Guaspari
+DNI: 32067546
+Email: eliguaspari@gmail.com
+Sede: Tandil
 
-To build the project run:
+## Enlace del proyecto editable
 
-```bash
-ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
