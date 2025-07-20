@@ -14,6 +14,7 @@ export class ProductList {
 
    products: Product [] = [];
   
+  // Inyección de dependencias de servicio
   constructor (
     private cart: ProductCart,
     private productData: ProductData
@@ -24,11 +25,19 @@ export class ProductList {
     .subscribe(products => this.products = products);
   }
 
-  addToCart(product: Product): void{
-    this.cart.addToCart(product);
-    product.stock -=product.quantity;
-    product.quantity= 0;
-  }
+
+  addToCart(product: Product): void {
+  this.cart.addToCart(product); 
+  product.stock -= product.quantity; 
+
+  // Actualiza el stock en MockAPI
+  this.productData.updateProduct(product.id!, { stock: product.stock }).subscribe({
+    next: () => console.log('Stock actualizado en MockAPI'),
+    error: err => console.error('Error al actualizar el stock', err)
+  });
+
+  product.quantity = 0; 
+}
 
   maxReached(m: String){
     alert(m);

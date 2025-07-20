@@ -1,3 +1,4 @@
+// Servicios
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
@@ -15,14 +16,21 @@ export class ProductData {
 
   //Consumo la api y devuelvo un abservable
 
-  public getAll(): Observable<Product[]>{
+  //Me traigo todos los productos
+  public getAll(): Observable<Product[]> {
     return this.http.get<Product[]>(URL)
-               .pipe(
-                  tap((products: Product[])=> products.forEach(product => product.quantity= 0))
-               );
+      .pipe(
+        tap((products: Product[]) => products.forEach(product => product.quantity = 0))
+      );
   }
 
-   public postProduct(product: Product): Observable<Product> {
+  //Agrego un producto
+  public postProduct(product: Product): Observable<Product> {
     return this.http.post<Product>(URL, product);
+  }
+
+  //Actualizo
+  public updateProduct(id: string, updatedData: Partial<Product>): Observable<Product> {
+    return this.http.put<Product>(`${URL}/${id}`, updatedData);
   }
 }

@@ -1,11 +1,17 @@
-<h4>Carrito de compras</h4>
-<ul>
+<!--Directiva estructural @for y @if -->
+<div class="card p-3 border">
+  <h4 class="text-center">Carrito de compras</h4>
+  <ul class="list-unstyled">
     @for (product of cartList$ | async; track product.name) {
-    <li>
-        {{product.name}}: {{product.quantity}}
+    <li class="d-flex align-items-center border-bottom py-2">
+      <img [src]="product.image" [alt]="product.name" class="img-thumbnail me-2" style="width: 60px; height: auto;" />
+      <div>
+        <strong>{{ product.name }}</strong><br />
+        Cantidad: {{ product.quantity }}
+      </div>
     </li>
     } @empty {
-    <li>No hay productos en el carrito.</li>
+    <li class="text-muted text-center">No hay productos en el carrito.</li>
     }
-</ul>
-
+  </ul>
+</div>

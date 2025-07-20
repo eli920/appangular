@@ -1,3 +1,4 @@
+// Servicios
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Product } from './product-list/Product';
@@ -23,4 +24,5 @@ export class ProductCart {
     console.log(this._cartList);
     this.cartList.next(this._cartList);
   }
+
 }

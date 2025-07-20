@@ -1,3 +1,4 @@
+// "Componente de presentación" o "wrapper"
 import { Component } from '@angular/core';
 
 @Component({
