@@ -10,13 +10,10 @@
           <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/about']">About</a>
+          <a class="nav-link" [routerLink]="['/about']">Quienes somos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          <a class="nav-link" [routerLink]="['/admin/add']">Panel Admin</a>
         </li>
       </ul>
     </div>
@@ -28,6 +25,6 @@
 
 <footer class="text-center bg-secondary"> 
   <span class="text-light">
-    {{title}} - 2018 - Tandil, Buenos Aires, Argentina.
+    <p> {{title}}  ⓒ 2025 </p>
   </span>
 </footer>

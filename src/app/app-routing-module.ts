@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CarpentryProducts } from './carpentry-products/carpentry-products';
 import { CarpentryAbout } from './carpentry-about/carpentry-about';
+import { FormProduct } from './form-product/form-product';
 
 // Ruteo
 const routes: Routes = [
@@ -21,7 +22,12 @@ const routes: Routes = [
     path: 'about',
     component: CarpentryAbout
 
-  }
+  },
+
+   {
+    path: 'admin/add',  
+    component: FormProduct
+  },
  
 ];
 

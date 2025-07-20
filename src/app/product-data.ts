@@ -22,4 +22,7 @@ export class ProductData {
                );
   }
 
+   public postProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(URL, product);
+  }
 }

@@ -13,38 +13,6 @@ import { ProductData } from '../product-data';
 export class ProductList {
 
    products: Product [] = [];
-
-  //  products: Product [] = [
-  //     {   
-  //     image: "assets/img/banco.jpeg",
-  //     name: "Banco de dos Cuerpos",
-  //     description: "Varillas recuperadas de Lapacho",
-  //     price: 170000,
-  //     stock: 0,
-  //     offer: false,
-  //     quantity: 0,
-  //     },
-
-  //   { 
-  //     image: "assets/img/mesa.jpg",
-  //     name: "Mesa Ratona",
-  //     description: "Lapacho recuperado- 90 x 45 x 45 cm",
-  //     price: 300000,
-  //     stock: 6,
-  //     offer: false,
-  //     quantity: 0,
-  //   },
-
-  //   { 
-  //     image: "assets/img/silla.jpg",
-  //     name: "Silla Jesuita",
-  //     description: "Varillas recuperadas de Lapacho/Quebracho",
-  //     price: 50000,
-  //     stock: 20,
-  //     offer: true,
-  //     quantity: 0,
-  //   }
-  // ]
   
   constructor (
     private cart: ProductCart,
@@ -64,6 +32,10 @@ export class ProductList {
 
   maxReached(m: String){
     alert(m);
+  }
+
+  handleProductAdded(product: Product): void {
+    this.products.push(product);
   }
 }
 
